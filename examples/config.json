@@ -1,0 +1,23 @@
+{
+  "broker": "mqtt://localhost",
+  "baseUrl": "http://example.org/mqtt",
+  "containerPath": "/history/",
+  "sparqlEndpointUrl": "http://localhost:3030/mqtt/update",
+  "rewrite": {
+    "map": {
+      "/home/0/2": "/bedroom/thermometer"
+    }
+  },
+  "properties": {
+    "global": {
+      "@context": {
+        "@vocab": "http://ns.bergnet.org/dark-horse#"
+      }
+    },
+    "topics": {
+      "/bedroom/thermometer": {
+        "@type": "Thermometer"
+      }
+    }
+  }
+}

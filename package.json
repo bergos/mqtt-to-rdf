@@ -1,0 +1,43 @@
+{
+  "name": "mqtt-to-rdf",
+  "version": "0.1.0",
+  "description": "Forwards MQTT messages to a RDF store",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint"
+  },
+  "bin": {
+    "mqtt-to-sparql": "bin/mqtt-to-sparql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bergos/mqtt-to-rdf.git"
+  },
+  "keywords": [
+    "mqtt",
+    "sparql"
+  ],
+  "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bergos/mqtt-to-rdf/issues"
+  },
+  "homepage": "https://github.com/bergos/mqtt-to-rdf",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "lodash": "^4.17.4",
+    "mors": "^0.1.13",
+    "mors-sub": "^0.1.0",
+    "rdf-cronify": "^0.1.0",
+    "rdf-ext": "^0.3.0",
+    "rdf-parser-jsonld": "^0.3.3",
+    "rdf-store-sparql": "^0.3.0",
+    "shush": "^1.0.0",
+    "slug": "^0.9.1"
+  },
+  "devDependencies": {
+    "standard": "^9.0.1"
+  },
+  "readmeFilename": "README.md"
+}
