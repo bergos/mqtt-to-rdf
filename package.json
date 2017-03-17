@@ -37,6 +37,7 @@
     "slug": "^0.9.1"
   },
   "devDependencies": {
+    "shelljs": "^0.7.7",
     "standard": "^9.0.1"
   },
   "readmeFilename": "README.md"

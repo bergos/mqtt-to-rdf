@@ -1,5 +1,4 @@
 {
-  "broker": "mqtt://localhost",
   "baseUrl": "http://example.org/mqtt",
   "containerPath": "/history/",
   "sparqlEndpointUrl": "http://localhost:3030/mqtt/update",

@@ -1,0 +1,7 @@
+{
+  "@context": {
+    "@vocab": "http://ns.bergnet.org/dark-horse#"
+  },
+  "temperature": 30.1,
+  "humidity": 20.5
+}
