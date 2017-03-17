@@ -11,9 +11,20 @@ const toGraph = require('./lib/to-graph')
 
 class MqttToRdf {
   constructor (options) {
+    this.verbose = options.verbose
+
     this.app = options.app
 
     this.router = mors.Router()
+
+    // log incoming message size
+    if (this.verbose) {
+      this.router.use((req, res, next) => {
+        console.log('received ' + req.payload.length + ' byte message for topic ' + req.topic)
+
+        next()
+      })
+    }
 
     // parse JSON message
     this.router.use(parseJson)
@@ -48,6 +59,15 @@ class MqttToRdf {
     // add timestamp triple
     this.router.use(addTimestamp)
 
+    // log outgoing graph size
+    if (this.verbose) {
+      this.router.use((req, res, next) => {
+        console.log('write ' + req.graph.length + ' triples to ' + req.iri)
+
+        next()
+      })
+    }
+
     // cronify
     this.router.use(cronify(options.store, {
       containerPath: options.containerPath
@@ -64,6 +84,10 @@ class MqttToRdf {
     this.app.use(this.router)
 
     this.app.listen(port || 1883)
+
+    if (this.verbose) {
+      console.log('started MqttToRdf')
+    }
   }
 }
 

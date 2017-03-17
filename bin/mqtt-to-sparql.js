@@ -1,4 +1,4 @@
-'use strict'
+#!/usr/bin/env node
 
 const morsSub = require('mors-sub')
 const path = require('path')
@@ -22,6 +22,7 @@ function run () {
     config = shush(path.resolve(program.config))
   }
 
+  config.verbose = program.verbose || config.verbose
   config.baseUrl = program.baseUrl || config.baseUrl
   config.broker = program.broker || config.broker
   config.sparqlEndpointUrl = program.endpoint || config.sparqlEndpointUrl
