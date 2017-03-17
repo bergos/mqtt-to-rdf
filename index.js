@@ -4,6 +4,7 @@ const cronify = require('./lib/cronify')
 const addTimestamp = require('./lib/add-timestamp')
 const mergeProperties = require('./lib/merge-properties')
 const mors = require('mors')
+const parseCbor = require('./lib/parse-cbor')
 const parseJson = require('./lib/parse-json')
 const rewrite = require('./lib/rewrite')
 const setSubject = require('./lib/set-subject')
@@ -28,6 +29,9 @@ class MqttToRdf {
 
     // parse JSON message
     this.router.use(parseJson)
+
+    // parse CBOR message
+    this.router.use(parseCbor)
 
     // rewrite topic
     this.router.use(rewrite(options.rewrite))

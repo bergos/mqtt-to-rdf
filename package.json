@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/bergos/mqtt-to-rdf",
   "dependencies": {
+    "borc": "^2.0.2",
     "commander": "^2.9.0",
     "lodash": "^4.17.4",
     "mors": "^0.1.13",
