@@ -62,7 +62,11 @@ class MqttToRdf {
     // log outgoing graph size
     if (this.verbose) {
       this.router.use((req, res, next) => {
-        console.log('write ' + req.graph.length + ' triples to ' + req.iri)
+        if (req.graph) {
+          console.log('write ' + req.graph.length + ' triples to ' + req.iri)
+        } else {
+          console.log('no graph generated')
+        }
 
         next()
       })
