@@ -91,7 +91,7 @@ class MqttToRdf {
 
     this.app.use(this.router)
 
-    this.app.listen(port || 1883)
+    this.server = this.app.listen(port || 1883)
 
     if (this.verbose) {
       console.log('started MqttToRdf')
