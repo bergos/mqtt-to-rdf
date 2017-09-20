@@ -1,5 +1,3 @@
-'use strict'
-
 const cronify = require('./lib/cronify')
 const addTimestamp = require('./lib/add-timestamp')
 const mergeProperties = require('./lib/merge-properties')
@@ -13,9 +11,7 @@ const toGraph = require('./lib/to-graph')
 class MqttToRdf {
   constructor (options) {
     this.verbose = options.verbose
-
     this.app = options.app
-
     this.router = mors.Router()
 
     // log incoming message size
@@ -87,15 +83,20 @@ class MqttToRdf {
   }
 
   listen (port) {
-    this.app = this.app || mors()
+    return new Promise((resolve) => {
+      this.app = this.app || mors()
+      this.app.use(this.router)
 
-    this.app.use(this.router)
+      this.server = this.app.listen(port || 1883)
 
-    this.server = this.app.listen(port || 1883)
+      this.server.on('ready', () => {
+        if (this.verbose) {
+          console.log('started MqttToRdf')
+        }
 
-    if (this.verbose) {
-      console.log('started MqttToRdf')
-    }
+        resolve()
+      })
+    })
   }
 }
 

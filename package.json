@@ -4,8 +4,7 @@
   "description": "Forwards MQTT messages to a RDF store",
   "main": "index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "npm run lint"
+    "test": "standard && mocha"
   },
   "bin": {
     "mqtt-to-sparql": "bin/mqtt-to-sparql"
@@ -16,6 +15,8 @@
   },
   "keywords": [
     "mqtt",
+    "rdf",
+    "rdfjs",
     "sparql"
   ],
   "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
@@ -26,20 +27,21 @@
   "homepage": "https://github.com/bergos/mqtt-to-rdf",
   "dependencies": {
     "borc": "^2.0.2",
-    "commander": "^2.9.0",
+    "commander": "^2.11.0",
     "lodash": "^4.17.4",
     "mors": "^0.1.13",
     "mors-sub": "^0.1.0",
-    "rdf-cronify": "^0.1.0",
-    "rdf-ext": "^0.3.0",
-    "rdf-parser-jsonld": "^0.3.3",
-    "rdf-store-sparql": "^0.3.0",
+    "rdf-cronify": "^1.0.1",
+    "rdf-ext": "^1.1.0",
+    "rdf-parser-jsonld": "^1.1.0",
+    "rdf-store-sparql": "^1.0.0",
     "shush": "^1.0.0",
     "slug": "^0.9.1"
   },
   "devDependencies": {
-    "shelljs": "^0.7.7",
-    "standard": "^9.0.1"
-  },
-  "readmeFilename": "README.md"
+    "bluebird": "^3.5.0",
+    "mocha": "^3.5.3",
+    "shelljs": "^0.7.8",
+    "standard": "^10.0.3"
+  }
 }
