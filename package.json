@@ -29,7 +29,7 @@
     "borc": "^2.0.2",
     "commander": "^2.11.0",
     "lodash": "^4.17.4",
-    "mors": "^0.1.13",
+    "mors": "github:bergos/mors",
     "mors-sub": "^0.1.0",
     "rdf-cronify": "^1.0.1",
     "rdf-ext": "^1.1.0",
